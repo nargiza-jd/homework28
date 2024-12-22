@@ -62,6 +62,12 @@ final class Cat {
 
     // Ваш код может находится здесь
     // остальную часть этого файла вы менять не можете
+    public static double calculateAverageAge(List<Cat> cats) {
+        return cats.stream()
+                .mapToInt(Cat::getAge)
+                .average()
+                .orElse(0);
+    }
 
     /*********/
 }
