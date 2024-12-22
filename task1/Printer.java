@@ -24,4 +24,9 @@ public final class Printer {
         cats.forEach(Printer::printCat);
         System.out.println();
     }
+
+    public static void printAverageAge(List<Cat> cats) {
+        double averageAge = Cat.calculateAverageAge(cats);
+        System.out.println(String.format("Average Age: %.2f", averageAge));
+    }
 }
