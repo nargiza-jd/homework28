@@ -3,6 +3,7 @@ package kg.attractor.java.task2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 // код можно менять только в особо отмеченных местах этого файла.
 // то есть там, где написаны три знака вопроса "???"
@@ -16,9 +17,9 @@ public final class ActiveCat {
             "Millie", "Daisy", "Jasper", "Misty", "Minka");
     private final String name;
 
-    private ??? action;
+    private final Supplier<String> action;
 
-    public ActiveCat(??? action) {
+    public ActiveCat(Supplier<String> action) {
         name = names.get(r.nextInt(names.size()));
         this.action = action;
     }
@@ -28,11 +29,12 @@ public final class ActiveCat {
     }
 
     public void doAction() {
-        System.out.printf("Я %s. %s%n", name, action.perform());
+        System.out.printf("Я %s. %s%n", name, action.get());
     }
 
     /*****/
     // Действия доступные для котов
+
 
     public static String jump() {
         return "Я прыгаю!";
